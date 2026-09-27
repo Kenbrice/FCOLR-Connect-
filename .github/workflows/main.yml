@@ -1,0 +1,38 @@
+{
+  "name": "fcolr-connect",
+  "version": "0.1.0",
+  "private": true,
+  "description": "FCOLR Connect - church-first video communication platform",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
+
+# FCOLR Connect v0.2
+
+Standalone church-first communication prototype. This project is independent and contains no Church Presenter code or dependency.
+
+## v0.2 foundation
+- Independent video and audio device selection
+- Browser device discovery (ATEM Mini USB webcam, OBS Virtual Camera, webcams/capture devices when exposed by the OS/browser)
+- Speech, Worship, Live Band and Broadcast audio profiles
+- Live Band profile requests 48 kHz stereo and disables browser echo cancellation, noise suppression and automatic gain control
+- Auto/1080p/720p/Data Saver capture targets
+- A/V sync control UI reserved for the real media pipeline
+- Camera/mic controls, screen sharing and meeting chat from v0.1
+- NDI is represented in the architecture but requires a native NDI receiver/gateway; browsers do not enumerate NDI directly as a normal camera source
+
+## Important
+This is still a local prototype. It does not yet contain the production SFU/multi-user WebRTC media server. Capture constraints are requests; actual resolution/channel behavior depends on the selected hardware, driver, OS and browser.
+
+## Run
+1. Install Node.js 20+
+2. In this folder run `npm install`
+3. Run `npm start`
+4. Open `http://localhost:3000`
+
+For camera/microphone testing from another device, use HTTPS in production/testing because browsers restrict media capture on non-secure remote origins.
